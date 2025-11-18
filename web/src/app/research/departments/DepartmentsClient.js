@@ -565,7 +565,7 @@ export default function DepartmentsClient() {
                       {selectedUnit.name==="Technology Transfer & Development Unit" && (
                         <>{techTransferPage}</>
                       )}
-                      {selectedUnit.name==="HPC-AI services" && (
+                      {selectedUnit.name==="HPC-AI Services" && (
                         <>{hpcAIPage}</>
                       )}
                       {selectedUnit.description && (
