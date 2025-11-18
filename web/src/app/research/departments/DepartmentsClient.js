@@ -561,47 +561,45 @@ export default function DepartmentsClient() {
                 {unitView === "details" && (
                   <motion.div variants={containerVariants} initial="hidden" animate="visible">
                     <motion.div variants={itemVariants} className="space-y-4">
-                      {selectedUnit.name==="HPC-AI services" ? ( hpcAIPage ) : (
-                        <>
-                          {selectedUnit.description && (
-                            <p className="text-gray-700 dark:text-gray-300">{selectedUnit.description}</p>
-                          )}
+                      {selectedUnit.name==="HPC-AI services" && (
+                        <>{hpcAIPage}</>
+                      )}
+                      {selectedUnit.description && (
+                        <p className="text-gray-700 dark:text-gray-300">{selectedUnit.description}</p>
+                      )}
+                      {!!coordinator && (
+                        <p className="text-sm text-gray-800 dark:text-gray-200">
+                          <span className="font-semibold">Coordinator:</span> {coordinator}
+                        </p>
+                      )}
+                      {!!coCoordinator && (
+                        <p className="text-sm text-gray-800 dark:text-gray-200">
+                          <span className="font-semibold">Deputy:</span> {coCoordinator}
+                        </p>
+                      )}
 
-                          {!!coordinator && (
-                            <p className="text-sm text-gray-800 dark:text-gray-200">
-                              <span className="font-semibold">Coordinator:</span> {coordinator}
-                            </p>
-                          )}
-                          {!!coCoordinator && (
-                            <p className="text-sm text-gray-800 dark:text-gray-200">
-                              <span className="font-semibold">Deputy:</span> {coCoordinator}
-                            </p>
-                          )}
+                      {elements.length > 0 && (
+                        <div className="mt-2">
+                          <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1">
+                            Categories:
+                          </p>
 
-                          {elements.length > 0 && (
-                            <div className="mt-2">
-                              <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1">
-                                Categories:
-                              </p>
-
-                              {elements.map((el, i) => (
-                                <SectionToggle key={`${el.text}-${i}`} label={el.text}>
-                                  {Array.isArray(el.content) ? (
-                                    <div className="space-y-2 text-sm text-gray-800 dark:text-gray-200">
-                                      {el.content.map((p, idx) => (
-                                        <p key={idx}>{p}</p>
-                                      ))}
-                                    </div>
-                                  ) : (
-                                    <p className="text-sm text-gray-800 dark:text-gray-200">
-                                      {String(el.content || "")}
-                                    </p>
-                                  )}
-                                </SectionToggle>
-                              ))}
-                            </div>
-                          )}
-                        </>
+                          {elements.map((el, i) => (
+                            <SectionToggle key={`${el.text}-${i}`} label={el.text}>
+                              {Array.isArray(el.content) ? (
+                                <div className="space-y-2 text-sm text-gray-800 dark:text-gray-200">
+                                  {el.content.map((p, idx) => (
+                                    <p key={idx}>{p}</p>
+                                  ))}
+                                </div>
+                              ) : (
+                                <p className="text-sm text-gray-800 dark:text-gray-200">
+                                  {String(el.content || "")}
+                                </p>
+                              )}
+                            </SectionToggle>
+                          ))}
+                        </div>
                       )}
                     </motion.div>
                   </motion.div>
