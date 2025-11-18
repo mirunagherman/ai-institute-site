@@ -35,8 +35,12 @@
     },
     {
         "name": "HPC-AI services",
-        "description": [
-        ],
+        "description": [],
+        "type": "support" 
+    },
+    {
+        "name": "Technology Transfer & Development Unit",
+        "description": [],
         "type": "support" 
     }
 ]
